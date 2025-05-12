@@ -1,5 +1,6 @@
 ---
 import './src/styles/global.css';
+import { galleryImage } from '../data/galleryData.js';
 ---
 
 <html lang="en">
@@ -10,47 +11,19 @@ import './src/styles/global.css';
 		<meta name="generator" content="Astro" />
 		<title >Home</title>
 	</head>
-	<body class="bg-gradient-to-br from-fuchsia-300 to-amber-300 text-grey-900 font-sans">
-		<nav class="bg-sky-800 text-white py-4 shdow-md">
-			<ul class="flex justify-end gap-6 pr-10">
-				<li> <a href="design" class="hover:underline">Design</a></li>
-				<li><a href="" class="hover:underline">Music</a></li>
-				<li><a href="" class="hover:underline">Beat Store</a></li>
-				<li><a href="" class="hover:underline">About</a></li>
-				<li><a href="" class="hover:underline">Contact</a></li>
-			</ul>
-		</nav>
-		<header class="text-center py-12">
-			<h1 class="text-5xl font-bold tracking-wide">Welcome to Tripp Life</h1>
-			<p class="mt-4 text-xl text-sky-800">Visuals. Vibes. Vision.</p>
-		</header>
+	<h1>Gallery</h1>
 
-		<section class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-3 sm:grid-cols-2 gap-1">
-			<div>
-				<img src="/assets/images/LOVEISLAW.png" alt="Love is Law" class="transition-transform duration-300 group-hover:110" />
-			</div>
-			<div>
-				<img src="/assets/images/STONES.png" alt="Design 2" class="transition-transform duration-300 group-hover:110" />
-			</div>
-			<div>
-				<img src="/assets/images/design_shit.png" alt="Design 1" class="transition-transform duration-300 group-hover:110" />
-			</div>
-			<div>
-				<img src="/assets/images/dreamlogic.jpg" alt="dreamlogic" class="transition-transform duration-300 group-hover:110" />
-			</div>	
-				<img src="/assets/images/nate_negative.jpg" alt="negative nate" class="transition-transform duration-300 group-hover:110" />
-				
-				<img src="/assets/images/nate.jpg" alt="nate" class="transition-transform duration-300 group-hover:110" />
-				
-				<img src="/assets/images/punk.jpg" alt="punk" class="transition-transform duration-300 group-hover:110" />
-				
-				<img src="/assets/images/tripp_life_80s.jpg" alt="tripp life 80s" class="transition-transform duration-300 group-hover:110" />
-				
-				<img src="/assets/images/witch.jpg" alt="witch" class="transition-transform duration-300 group-hover:110" />
-				
-				<img src="/assets/images/tripp_life2_cover.jpg" alt="tl2 cover" class="transition-transform duration-300 group-hover:110" />
-				
-				<img src="/assets/images/" alt="" class="transition-transform duration-300 group-hover:110" />
+    <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-10">
+      {galleryImage.map((img) => (
+        <div class="relative group overflow-hidden rounded-xl shadow-lg">
+          <img src={img.src} alt={img.title} class="w-full h-auto transition-transform duration-300 group-hover:scale-110" />
+          <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition">
+            <p class="text-white text-lg font-semibold">{img.title}</p>
+          </div>
+        </div>
+      ))}
+    </section><section>
+			
 		</section>
 
 		<footer class="text-center bg-black text-white py-6 mt-10 opacity-80">
